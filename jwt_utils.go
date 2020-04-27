@@ -15,6 +15,7 @@ type myClaims struct {
 	Email    string `json:"Email"`
 	ID       uint   `json:"id"`
   StoreID  uint   `json:"store_id"`
+  StoreCode string `json:"store_code"`
 	RoleID	 uint		`json:"role_id"`
   Role     string `json:"role"`
 	Scope    string `json:"scope"`
@@ -41,6 +42,7 @@ func(u *JwtUtils) GenerateClaims(m map[string]interface{}) ( error){
               		Email:    m["email"].(string),
               		ID:       uint(m["id"].(float64)),
                   StoreID:  uint(m["store_id"].(float64)),
+                  StoreCode:  m["store_code"].(string),
               		RoleID:   uint(m["role"].(float64)),
               		Role: 	  m["role_name"].(string),
               		Scope:    m["scope"].(string),
